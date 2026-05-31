@@ -1,0 +1,67 @@
+def quiz():
+    questions=[
+        {
+            "question":"Which planet is known as the Red Planet?",
+            "options":["A.Venus","B.Mars","C.Jupiter","D.Mercury"],
+            "answer":"B"
+        },
+        {
+            "question":"Which is the largest planet in our Solar System?",
+            "options":["A.saturn","B.Jupiter","C.Earth","D.Neptune"],
+            "answer":"B"
+        },
+        {
+            "question":"Which planet is closest to the Sun?",
+            "options":["A.Venus","B.Earth","C.Mercury","D.Mars"],
+            "answer":"C"
+        },
+        {
+            "question":"Which planet is famous for its prominent rings?",
+            "options":["A.Uranus","B.Neptune","C.Saturn","D.Jupiter"],
+            "answer":"C"
+        },
+        {
+            "question":"Which planet is called the 'Morning Star' or 'Evening Star' because it shines brightly in the sky?",
+            "options":["A.Venus","B.Mercury","C.Mars","D.Saturn"],
+            "answer":"A"
+        },
+
+    ]
+    score=0
+    print("Welcome to the QuizMaster")
+    print("Answer the questions by just typing the options A,B,C or D\n")
+
+    for i,q in enumerate(questions, start=1):
+        print(f'{i}: {q['question']}')
+
+        for option in q['options']:
+            print(option)
+
+        answer= input('Your Answer:').strip().upper()# strip()removes spaces
+
+        if answer==q['answer']:
+            print('Correct Answer\n')
+            score+=1
+        else:
+            print(f'Wrong! Correct Answer:{q['answer']}\n')
+
+    total=len(questions)
+    print(f'Quiz Over! You Scored:{score}/{total}')
+
+    percentage= (score/ total)*100
+
+    print(f'Your percentage: {percentage:.2f}%')
+
+    if percentage == 100:
+        print('Excellent')
+    elif percentage >=60:
+        print('Good Job')
+    else:
+        print('keep Practicing!')
+
+    retry=input('\n Do you want to play again? (yes/no):').lower()
+
+    if retry== 'yes':
+        quiz() 
+
+quiz() 
